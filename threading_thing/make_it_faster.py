@@ -47,14 +47,14 @@ def calculate_sum_threading(limit):
 
 
 # Benchmarking using timeit
-limit = 10**8  # The limit for the sum
+limit_binary = bin(10**8)  # The limit for the sum in binary
 
 if __name__ == '__main__':
     # Measure the execution time of the non-threaded function
-    non_threaded_time = timeit.timeit(lambda: calculate_sum(limit), number=1)
+    non_threaded_time = timeit.timeit(lambda: calculate_sum(int(limit_binary, 2)), number=1)
 
     # Measure the execution time of the threading function
-    threading_time = timeit.timeit(lambda: calculate_sum_threading(limit), number=1)
+    threading_time = timeit.timeit(lambda: calculate_sum_threading(int(limit_binary, 2)), number=1)
 
     print("Non-threaded time:", non_threaded_time)
     print("Threading time:", threading_time)
